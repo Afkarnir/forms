@@ -1,6 +1,9 @@
 <script setup>
 import { defineProps } from 'vue';
-const props = defineProps(['label', 'keyValue'])
+const props = defineProps({
+    label: String,
+    value: String
+})
 </script>
 
 <template>

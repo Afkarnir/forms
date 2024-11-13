@@ -2,7 +2,7 @@ export type FirstForm = {
     data: {
         [key: string]: {
             value: string
-        } | JohnDoe
+        } | Person
     },
     form: {
         components: CustomComponent[],
@@ -16,7 +16,7 @@ export type CustomComponent = {
     disabled: boolean,
 }
 
-export type JohnDoe = {
+export type Person = {
     name: string,
     age: number,
     gender: string,
