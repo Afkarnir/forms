@@ -1,0 +1,76 @@
+{
+    "data": {
+        "john_doe": {
+            "name": "John Doe",
+            "age": 30,
+            "gender": "male",
+            "address": {
+                "street": "123 Main St",
+                "city": "Anytown",
+                "state": "CA",
+                "zip": "12345"
+            },
+            "phones": [
+                {
+                    "type": "home",
+                    "number": "555-1234"
+                },
+                {
+                    "type": "work",
+                    "number": "555-5678"
+                }
+            ],
+            "email": "john.doe@example.com"
+        },
+        "date_1": {
+            "value": "2023-01-01"
+        },
+        "input_1": {
+            "value": "Test"
+        },
+        "select_1": {
+            "value": "item_2"
+        }
+    },
+    "form": {
+        "components": [
+            {
+                "type": "button",
+                "key": "button_1",
+                "label": "Button"
+            },
+            {
+                "type": "date",
+                "key": "date_1",
+                "label": "Date"
+            },
+            {
+                "type": "input",
+                "key": "input_1",
+                "label": "Input"
+            },
+            {
+                "type": "select",
+                "key": "select_1",
+                "label": "Select",
+                "options": {
+                    "items": [
+                        {
+                            "value": "item_1",
+                            "label": "Item 1"
+                        },
+                        {
+                            "value": "item_2",
+                            "label": "Item 2"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "person",
+                "key": "john_doe",
+                "label": "Person"
+            }
+        ]
+    }
+}

@@ -1,0 +1,104 @@
+{
+    "data": {
+        "john_doe": {
+            "name": "John Doe",
+            "projects": [
+                "project_1",
+                "project_2"
+            ],
+            "age": 30,
+            "gender": "male",
+            "address": {
+                "street": "123 Main St",
+                "city": "Anytown",
+                "state": "CA",
+                "zip": "12345"
+            },
+            "phones": [
+                {
+                    "type": "home",
+                    "number": "555-1234"
+                },
+                {
+                    "type": "work",
+                    "number": "555-5678"
+                }
+            ],
+            "email": "john.doe@example.com"
+        },
+        "project_1": {
+            "name": "Project 1"
+        },
+        "date_1": {
+            "value": "2023-01-01"
+        },
+        "input_1": {
+            "value": "Test"
+        }
+    },
+    "form": {
+        "components": [
+            {
+                "type": "button",
+                "key": "button_1",
+                "label": "Button",
+                "disabled": false
+            },
+            {
+                "type": "date",
+                "key": "date_1",
+                "label": "Date",
+                "disabled": false,
+                "required": true
+            },
+            {
+                "type": "input",
+                "key": "input_1",
+                "label": "Input",
+                "disabled": false,
+                "validation": "email",
+                "required": true
+            },
+            {
+                "type": "input",
+                "key": "input_2",
+                "label": "Input",
+                "disabled": false,
+                "validation": "number",
+                "required": false
+            },
+            {
+                "type": "input",
+                "key": "input_3",
+                "label": "Input",
+                "disabled": true,
+                "required": false
+            },
+            {
+                "type": "select",
+                "key": "select_1",
+                "label": "Select",
+                "disabled": false,
+                "required": true,
+                "options": {
+                    "items": [
+                        {
+                            "value": "item_1",
+                            "label": "Item 1"
+                        },
+                        {
+                            "value": "item_2",
+                            "label": "Item 2"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "person",
+                "key": "john_doe",
+                "label": "Person",
+                "disabled": false
+            }
+        ]
+    }
+}
