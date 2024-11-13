@@ -20,7 +20,7 @@ async function checkForm(event: Event) {
     if (!validation) {
         return console.error('Formulaire non valide')
     } else {
-        console.log(form)
+        console.log(JSON.stringify(form))
     }
 }
 </script>
