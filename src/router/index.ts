@@ -22,7 +22,7 @@ const router = createRouter({
       component: ThirdForm,
     },
     {
-      path: '/**',
+      path: '/:catchAll(.*)',
       redirect: '/formulaire-1',
     }
   ],
