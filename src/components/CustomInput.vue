@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { CustomComponent } from '../model';
-import { defineProps, defineModel } from 'vue';
 
 const props = defineProps({
     component: Object as CustomComponent,

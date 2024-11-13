@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { defineProps, defineModel } from 'vue';
-
 const props = defineProps({
     component: Object as CustomComponent,
     value: String

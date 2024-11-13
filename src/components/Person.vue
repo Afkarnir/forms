@@ -1,12 +1,10 @@
-<script setup>
-import { defineProps, computed } from 'vue';
+<script setup lang="ts">
+// import { Person } from '../model';
+import { computed } from 'vue';
 
-const props = defineProps(['person'])
-
-const keys = computed(() => Object.keys(props.person))
-const values = computed(() => Object.values(props.person))
-
-const adressEntries = computed(() => Object.entries(props.person.address))
+const props = defineProps({
+    person: Object
+})
 </script>
 
 <template>
@@ -19,9 +17,9 @@ const adressEntries = computed(() => Object.entries(props.person.address))
         </ul>
 
         <ul v-else-if="key === 'address'">
-            <li v-for="adress in adressEntries">
-                <span>{{ adress[0] }} :</span>
-                <span>{{ adress[1] }}</span>
+            <li v-for="(value, key) in person.address">
+                <span>{{ key }} :</span>
+                <span>{{ value }}</span>
             </li>
         </ul>
         <li v-else>
