@@ -1,19 +1,26 @@
 <script setup lang="ts">
-import { getData } from '../../data.ts'
-import { ref, reactive, onMounted } from 'vue'
+import CustomForm from '@/components/CustomForm.vue'
+import { getData } from '../../data'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { state } from '../../store'
 
-const data = reactive({})
+const loading = ref(true);
 
 onMounted(() => {
     getData('json2.json').then(res => {
-        Object.assign(data, res)
+        state.data = res
+        state.setForm(res)
+        loading.value = false
     })
+})
+
+onUnmounted(() => {
+    state.clear()
 })
 </script>
 
 <template>
-    <h1>formulaire 2</h1>
+    <h1>Formulaire 2</h1>
+    <CustomForm v-if="!loading"></CustomForm>
+    
 </template>
-
-<style scoped>
-</style>

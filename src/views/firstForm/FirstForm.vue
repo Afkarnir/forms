@@ -1,53 +1,26 @@
 <script setup lang="ts">
-import { getData } from '../../data.ts'
-import { ref, reactive, onMounted } from 'vue'
-import CustomInput from '../../components/CustomInput.vue'
-import CustomSelect from '../../components/CustomSelect.vue'
-import CustomButton from '../../components/CustomButton.vue'
-import Person from '../../components/Person.vue'
+import { getData } from '../../data'
+import { onMounted, onUnmounted, ref } from 'vue'
+import CustomForm from '../../components/CustomForm.vue'
+import { state } from '@/store'
 
-const data = reactive({})
-
-let form = {}
+const loading = ref(true);
 
 onMounted(() => {
     getData('json1.json').then(res => {
-        Object.assign(data, res)
-
-        res.form.components.filter(component => component.type !== 'person' && component.type !== 'button').forEach(component => {
-            form[component.key] = data.data[component.key].value
-        })
+        state.data = res
+        state.setForm(res)
+        loading.value = false
     })
+})
+
+onUnmounted(() => {
+    state.clear()
 })
 
 </script>
 
 <template>
-    <h1>formulaire 1</h1>
-    <form v-if="data.data">
-
-        <template v-for="component in data.form.components">
-            <CustomSelect v-if="component.type === 'select'" :component="component" :value="data.data[component.key].value" v-model="form[component.key]"></CustomSelect>
-
-            <CustomButton v-else-if="component.type === 'button'" :label="component.label" :keyValue="component.key"></CustomButton>
-
-            <Person v-else-if="component.type === 'person'" :person="data.data[component.key]"></Person>
-
-            <CustomInput v-else :component="component" :value="data.data[component.key].value" v-model="form[component.key]"></CustomInput>
-        </template>
-
-        <button type="button" @click="console.log(form)">Submit</button>
-    </form>
-    
+    <h1>Formulaire 1</h1>
+    <CustomForm v-if="!loading"></CustomForm>
 </template>
-
-<style scoped>
-
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    max-width: 300px;
-}
-</style>
