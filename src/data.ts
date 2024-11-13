@@ -1,7 +1,7 @@
-import type { FirstForm } from "@/model";
+import type { Form } from "@/model";
 
-export async function getData(file: string): Promise<FirstForm> {
+export async function getData(file: string): Promise<Form> {
     const response = await fetch(`http://localhost:5173/${file}`)
-    const data: FirstForm = await response.json();
+    const data: Form = await response.json();
     return data;
 }
