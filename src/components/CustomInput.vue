@@ -1,17 +1,24 @@
 <script setup lang="ts">
-import { CustomComponent } from '../model';
+import type { PropType } from 'vue';
+import type { CustomComponent } from '../model';
 
-const props = defineProps({
-    component: Object as CustomComponent,
-    value: String
+defineProps({
+    component: {
+        type: Object as PropType<CustomComponent>,
+        required: true
+    }
 })
 const model = defineModel()
+
+function updateModel(event: Event) {
+    model.value = (event.target as HTMLInputElement).value
+}
 </script>
 
 <template>
     <label>
-        <span>{{ props.component.label }}</span>
-        <input :type="props.component.type" :id="props.component.key" :value="props.value" @change="model = $event.target.value">
+        <span>{{ component.label }}</span>
+        <input :type="component.type" :id="component.key" :value="model" @change="updateModel($event)" :disabled="component.disabled" :required="component.required">
     </label>
 </template>
 

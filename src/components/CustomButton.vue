@@ -1,13 +1,16 @@
 <script setup lang="ts">
-const props = defineProps({
-    label: String,
-    value: String
+defineProps({
+    label: {
+        type: String,
+        required: true
+    },
+    keyValue: {
+        type: String,
+        required: true
+    },
 })
 </script>
 
 <template>
-    <button type="button" :id="props.keyValue">{{ props.label }}</button>
+    <button type="button" :id="keyValue">{{ label }}</button>
 </template>
-
-<style scoped>
-</style>
