@@ -25,7 +25,7 @@ export type CustomComponent = {
     label: string,
     disabled?: boolean,
     required?: boolean,
-    validation?: 'email',
+    validation?: 'email' | 'number',
 }
 
 export interface CustomSelectComponent extends CustomComponent {
